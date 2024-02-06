@@ -4,7 +4,7 @@ import TodoFilter from "./TodoFilter";
 import TodoModal from "./TodoModal";
 
 const TodoContainer = () => {
-  const todos = useAppSelector((state) => state.todos.todos);
+  const { todos } = useAppSelector((state) => state.todos);
   return (
     <div>
       <div className="flex justify-between items-center mb-5">
@@ -21,7 +21,7 @@ const TodoContainer = () => {
         ) : (
           <div className="bg-white p-5 w-full h-full rounded space-y-3">
             {todos?.map((todo, index) => (
-              <TodoCard key={index} todo={todo} />
+              <TodoCard key={index} {...todo} />
             ))}
           </div>
         )}
